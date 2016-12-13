@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.ssm.bean.User;
 import com.ssm.service.User.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,8 @@ public class LoginController {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public boolean login(String loginName, String passWord) {
-        boolean result = userService.login(loginName, passWord);
-        return result;
+    public String login(String userName, String passWord) {
+        User user = userService.login(userName, passWord);
+        return user.toString();
     }
 }

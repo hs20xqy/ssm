@@ -1,5 +1,6 @@
 package com.ssm.service.User.impl;
 
+import com.ssm.mapper.UserMapper;
 import com.ssm.service.User.IUserService;
 import com.ssm.bean.User;
 import com.ssm.dao.user.IUserDao;
@@ -12,11 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements IUserService {
 
+//    private IUserDao userDao;
     @Autowired
-    private IUserDao userDao;
+    UserMapper userMapper;
 
-    public boolean login(String userName, String passWord) {
-        User user = userDao.getUser(userName, passWord);
-        return user != null;
+    public User login(String userName, String passWord) {
+        User user = userMapper.getUser(userName, passWord);
+        return user;
     }
 }

@@ -1,5 +1,7 @@
 package com.ssm.service.User;
 
+import com.ssm.bean.User;
+
 /**
  * Created by hs on 2016/12/8.
  */
@@ -11,6 +13,6 @@ public interface IUserService {
      * @param passWord 密码
      * @return
      */
-    boolean login(String userName, String passWord);
+    User login(String userName, String passWord);
 
 }
