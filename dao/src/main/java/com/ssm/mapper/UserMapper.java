@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface UserMapper {
 
-    @Select("select * from user where username = #{userName} and password = #{passWord}")
+//    @Select("select * from user where username = #{userName} and password = #{passWord}")
     User getUser(@Param("userName") String userName,@Param("passWord") String passWord);
 
 }
