@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- scan 是否定期扫描xml文件， scanPeriod是说扫描周期是30秒-->
+<configuration scan="true" scanPeriod="30 seconds" debug="false" packagingData="true">
+    <!-- 项目名称 -->
+    <contextName>ssm</contextName>
+    <!-- 属性 -->
+    <property name="USER_HOME" value="./log"/>
+    <property name="fmt" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+    <!-- Insert the current time formatted as "yyyyMMdd'T'HHmmss" under
+       the key "bySecond" into the logger context. This value will be
+       available to all subsequent configuration elements. -->
+    <timestamp key="bySecond" datePattern="yyyyMMdd" timeReference="contextBirth"/>
+    <!-- appender很重要，一个配置文件会有多个appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 过滤器，一个appender可以有多个 -->
+        <!-- 阈值过滤，就是log行为级别过滤，debug及debug以上的信息会被打印出来 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>debug</level>
+        </filter>
+        <!-- encoders are assigned the type
+                    ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <!-- encoder编码规则 -->
+        <encoder>
+            <pattern>${fmt}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
