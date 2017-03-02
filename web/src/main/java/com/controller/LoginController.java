@@ -2,11 +2,12 @@ package com.controller;
 
 import com.ssm.bean.User;
 import com.ssm.service.User.IUserService;
+import com.test.TestStatic;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/user")
-public class LoginController {
+public class LoginController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class.getName());
 
@@ -25,16 +26,11 @@ public class LoginController {
     @RequestMapping(value = "/login")
     @ResponseBody
     public String login(String userName, String passWord) {
-        if (StringUtils.isEmpty(userName)) {
-            logger.debug("username can't be null!");
-            return "error";
-        }
-        if (StringUtils.isEmpty(passWord)) {
-            logger.debug("password can't be null!");
-            return "error";
-        }
-        logger.info(userName + "is login");
         User user = userService.login(userName, passWord);
-        return user.toString();
+        if (user == null) {
+            return "";
+        }else {
+            return user.toString();
+        }
     }
 }

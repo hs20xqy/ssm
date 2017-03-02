@@ -8,16 +8,50 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!-- 包扫描路径 -->
     <context:component-scan base-package="com.controller" />
 
+    <!-- 配置default servlet, 将静态资源交由web服务器自己处理 -->
+    <!--<mvc:default-servlet-handler/>-->
+
+    <!-- 配置静态资源 -->
+    <mvc:resources mapping="/*.html" location="/"/>
+
     <!-- if you use annotation you must configure following setting -->
-    <mvc:annotation-driven />
+    <!-- 配置fastjson作为json解析器 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+                <property name="fastJsonConfig">
+                    <bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
+                        <property name="features">
+                            <list>
+                                <value>AllowArbitraryCommas</value>
+                                <value>AllowUnQuotedFieldNames</value>
+                                <value>DisableCircularReferenceDetect</value>
+                            </list>
+                        </property>
+                        <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <beans>
+        <!-- 配置视图解析器 -->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-            <property name="prefix" value="/WEB-INF/view/jsp/"/>
+            <property name="prefix" value="/WEB-INF/view/"/>
             <property name="suffix" value=".jsp" />
         </bean>
+        <!-- 配置异常拦截器 -->
+        <bean name="exceptionResolver" class="com.exception.ExceptionHandler"></bean>
     </beans>
 
 </beans>
