@@ -12,12 +12,17 @@
 
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven />
-
     <beans>
-        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-            <property name="prefix" value="/WEB-INF/view/jsp/"/>
-            <property name="suffix" value=".jsp" />
-        </bean>
+        <!-- spring 3 视图解析器 -->
+        <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+            <!--<property name="prefix" value="/WEB-INF/view/jsp/"/>-->
+            <!--<property name="suffix" value=".jsp" />-->
+        <!--</bean>-->
+
+        <!-- spring 4 视图解析器 -->
+        <mvc:view-resolvers>
+            <mvc:jsp prefix="/WEB-INF/view/jsp/" suffix=".jsp"/>
+        </mvc:view-resolvers>
     </beans>
 
 </beans>
