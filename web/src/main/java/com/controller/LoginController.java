@@ -2,8 +2,6 @@ package com.controller;
 
 import com.ssm.bean.User;
 import com.ssm.service.User.IUserService;
-import com.test.TestStatic;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class LoginController extends BaseController {
     public String login(String userName, String passWord) {
         User user = userService.login(userName, passWord);
         if (user == null) {
-            return "";
+            return "The user dose not exist !";
         }else {
             return user.toString();
         }

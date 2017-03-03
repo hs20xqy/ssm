@@ -1,6 +1,4 @@
-package com.test;
-
-import org.springframework.stereotype.Service;
+package com.common;
 
 /**
  * Created by hs on 2016/12/8.

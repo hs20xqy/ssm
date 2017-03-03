@@ -1,4 +1,4 @@
-package com.test;
+package com.common;
 
 /**
  * Created by hs on 2016/12/8.

@@ -1,4 +1,4 @@
-package com.test.log;
+package com.common.log;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
