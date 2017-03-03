@@ -44,6 +44,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <mvc:annotation-driven />
     <beans>
         <!-- 配置视图解析器 -->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -52,6 +53,16 @@
         </bean>
         <!-- 配置异常拦截器 -->
         <bean name="exceptionResolver" class="com.exception.ExceptionHandler"></bean>
+        <!-- spring 3 视图解析器 -->
+        <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+            <!--<property name="prefix" value="/WEB-INF/view/jsp/"/>-->
+            <!--<property name="suffix" value=".jsp" />-->
+        <!--</bean>-->
+
+        <!-- spring 4 视图解析器 -->
+        <mvc:view-resolvers>
+            <mvc:jsp prefix="/WEB-INF/view/jsp/" suffix=".jsp"/>
+        </mvc:view-resolvers>
     </beans>
 
 </beans>
