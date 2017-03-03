@@ -26,7 +26,9 @@
         <log4j2.version>2.7</log4j2.version>
         <logback.version>1.1.8</logback.version>
         <guava.version>20.0</guava.version>
+        <fastjson.version>1.2.24</fastjson.version>
         <druid.version>1.0.28</druid.version>
+        <commons.lang3.version>3.5</commons.lang3.version>
     </properties>
 
     <dependencyManagement>
