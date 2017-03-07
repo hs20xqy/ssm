@@ -3,10 +3,11 @@
 <%@include file="common/head.jsp"%>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="${basePath}/static/modules/user/user.css">
 </head>
 <body>
 <div class="main">
-  <form id="loginForm" action="${basePath}/user/login" method="post">
+  <form id="loginForm" class="loginForm" action="${basePath}/user/login" method="post">
     <div>
       <label>用户名：</label>
       <input name="userName" type="text"/>
