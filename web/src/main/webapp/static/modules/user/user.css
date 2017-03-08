@@ -1,0 +1,8 @@
+.loginForm {
+  width: 400px;
+  margin: 0 auto;
+}
+.loginForm label {
+  width: 80px;
+  text-align: right;
+}

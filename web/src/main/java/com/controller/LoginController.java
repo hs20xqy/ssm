@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by hs on 2016/12/8.
@@ -21,14 +22,23 @@ public class LoginController extends BaseController {
     @Autowired
     IUserService userService;
 
+    @RequestMapping(value = "/home")
+    public ModelAndView loginView() {
+        ModelAndView view = new ModelAndView("/login");
+        return view;
+    }
+
     @RequestMapping(value = "/login")
-    @ResponseBody
-    public String login(String userName, String passWord) {
+    public ModelAndView login(String userName, String passWord) {
         User user = userService.login(userName, passWord);
+        ModelAndView view = new ModelAndView();
         if (user == null) {
-            return "The user dose not exist !";
+            view.setViewName("/login");
+            view.addObject("msg", "用户名或密码错误");
         }else {
-            return user.toString();
+            view.setViewName("/main");
+            view.addObject("user", user);
         }
+        return view;
     }
 }
