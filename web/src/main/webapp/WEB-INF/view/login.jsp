@@ -3,7 +3,7 @@
 <%@include file="common/head.jsp"%>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="${basePath}/static/modules/user/user.css">
+  <link rel="stylesheet" type="text/css" href="${basePath}/static/css/modules/user/user.css">
 </head>
 <body>
 <div class="main">
@@ -16,7 +16,7 @@
       <label>密码：</label>
       <input name="passWord" type="password"/>
     </div>
-    <div>
+    <div class="btn_box">
       <button type="submit">登录</button>
       <button type="button">注册</button>
     </div>

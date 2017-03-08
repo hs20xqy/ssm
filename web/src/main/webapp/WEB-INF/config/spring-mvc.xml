@@ -16,7 +16,7 @@
 
     <!-- 配置静态资源 -->
     <!--<mvc:resources mapping="/*.html" location="/"/>-->
-    <mvc:resources mapping="/modules/user/**" location="/static/"/>
+    <mvc:resources mapping="/static/**" location="/static/"/>
 
     <!-- if you use annotation you must configure following setting -->
     <!-- 配置fastjson作为json解析器 -->
