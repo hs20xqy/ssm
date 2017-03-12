@@ -30,6 +30,9 @@
         <druid.version>1.0.28</druid.version>
         <commons.lang3.version>3.5</commons.lang3.version>
         <jstl.version>3.5</jstl.version>
+        <aspectjweaver.version>1.8.10</aspectjweaver.version>
+        <aspectjrt.version>1.8.10</aspectjrt.version>
+        <aopalliance.version>1.0</aopalliance.version>
     </properties>
 
     <dependencyManagement>
@@ -121,7 +124,22 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-
+            <!-- aspectj -->
+            <!--<dependency>-->
+                <!--<groupId>org.aspectj</groupId>-->
+                <!--<artifactId>aspectjrt</artifactId>-->
+                <!--<version>${aspectjrt.version}</version>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>aopalliance</groupId>-->
+                <!--<artifactId>aopalliance</artifactId>-->
+                <!--<version>${aopalliance.version}</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 

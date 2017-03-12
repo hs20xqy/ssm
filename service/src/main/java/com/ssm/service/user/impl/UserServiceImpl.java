@@ -1,16 +1,15 @@
-package com.ssm.service.User.impl;
+package com.ssm.service.user.impl;
 
 import com.ssm.mapper.UserMapper;
-import com.ssm.service.User.IUserService;
+import com.ssm.service.user.IUserService;
 import com.ssm.bean.User;
-import com.ssm.dao.user.IUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by hs on 2016/12/9.
  */
-@Service
+@Service(value = "userService")
 public class UserServiceImpl implements IUserService {
 
     @Autowired

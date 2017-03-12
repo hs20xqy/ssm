@@ -1,6 +1,7 @@
-package com.ssm.service.User;
+package com.ssm.service.user;
 
 import com.ssm.bean.User;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by hs on 2016/12/8.
