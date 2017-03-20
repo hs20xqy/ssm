@@ -14,9 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/user")
-public class LoginController extends BaseController {
+public class UserController extends BaseController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class.getName());
 
     @Autowired
     IUserService userService;
@@ -37,6 +37,19 @@ public class LoginController extends BaseController {
         }else {
             view.setViewName("/main");
             view.addObject("user", user);
+        }
+        return view;
+    }
+
+    @RequestMapping(value = "/register")
+    public ModelAndView register(User user) {
+        ModelAndView view = new ModelAndView();
+        boolean result = userService.register(user);
+        if (result) {
+            view.setViewName("");
+        }
+        else {
+            view.setViewName("");
         }
         return view;
     }

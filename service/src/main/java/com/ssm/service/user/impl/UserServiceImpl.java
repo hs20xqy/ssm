@@ -1,5 +1,6 @@
 package com.ssm.service.user.impl;
 
+import com.ssm.dao.user.IUserDao;
 import com.ssm.mapper.UserMapper;
 import com.ssm.service.user.IUserService;
 import com.ssm.bean.User;
@@ -13,10 +14,16 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements IUserService {
 
     @Autowired
-    UserMapper userMapper;
+    IUserDao userDao;
+
 
     public User login(String userName, String passWord) {
-        User user = userMapper.getUser(userName, passWord);
+        // 对密码进行加密处理
+        User user = userDao.getUser(userName, passWord);
         return user;
+    }
+
+    public boolean register(User user) {
+        return  userDao.addUser(user) > 0;
     }
 }

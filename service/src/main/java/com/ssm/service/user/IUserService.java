@@ -16,4 +16,11 @@ public interface IUserService {
      */
     User login(String userName, String passWord);
 
+
+    /**
+     * 新用户注册
+     * @return
+     */
+    boolean register(User user);
+
 }

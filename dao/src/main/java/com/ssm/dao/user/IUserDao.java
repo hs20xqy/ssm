@@ -15,4 +15,11 @@ public interface IUserDao {
      */
     User getUser(String userName, String passWord);
 
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
+    int addUser(User user);
+
 }
