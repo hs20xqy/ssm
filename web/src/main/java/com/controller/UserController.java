@@ -23,7 +23,7 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/home")
     public ModelAndView loginView() {
-        ModelAndView view = new ModelAndView("/login");
+        ModelAndView view = new ModelAndView("/user/login");
         return view;
     }
 
@@ -32,7 +32,7 @@ public class UserController extends BaseController {
         User user = userService.login(userName, passWord);
         ModelAndView view = new ModelAndView();
         if (user == null) {
-            view.setViewName("/login");
+            view.setViewName("/user/login");
             view.addObject("msg", "用户名或密码错误");
         }else {
             view.setViewName("/main");
@@ -46,10 +46,10 @@ public class UserController extends BaseController {
         ModelAndView view = new ModelAndView();
         boolean result = userService.register(user);
         if (result) {
-            view.setViewName("");
+            view.setViewName("user/login");
         }
         else {
-            view.setViewName("");
+            view.setViewName("/user/register");
         }
         return view;
     }
