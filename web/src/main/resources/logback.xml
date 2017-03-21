@@ -4,7 +4,7 @@
     <!-- 属性 -->
     <property name="appName" value="ssm"/>
     <property name="USER_HOME" value="/log/${appName}"/>
-    <property name="fmt" value="[%d{yyyy-MMM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="fmt" value="[%d{yyyy-MMM-dd HH:mm:ss.SSS}]|[%thread] %-5level %logger{36} - %msg%n"/>
     <!-- 项目名称 -->
     <contextName>${appName}</contextName>
     <!-- Insert the current time formatted as "yyyyMMdd'T'HHmmss" under
@@ -50,7 +50,7 @@
         </encoder>
     </appender>
 
-    <root level="debug">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
         <appender-ref ref="ROLLING_FILE" />

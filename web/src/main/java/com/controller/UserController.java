@@ -29,8 +29,8 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/login")
     public ModelAndView login(String userName, String passWord) {
-        User user = userService.login(userName, passWord);
         ModelAndView view = new ModelAndView();
+        User user = userService.login(userName, passWord);
         if (user == null) {
             view.setViewName("/user/login");
             view.addObject("msg", "用户名或密码错误");
@@ -41,12 +41,17 @@ public class UserController extends BaseController {
         return view;
     }
 
+    @RequestMapping(value = "/registerPage")
+    public ModelAndView registerPage() {
+        return new ModelAndView("user/register");
+    }
+
     @RequestMapping(value = "/register")
     public ModelAndView register(User user) {
         ModelAndView view = new ModelAndView();
         boolean result = userService.register(user);
         if (result) {
-            view.setViewName("user/login");
+            view.setViewName("/user/login");
         }
         else {
             view.setViewName("/user/register");

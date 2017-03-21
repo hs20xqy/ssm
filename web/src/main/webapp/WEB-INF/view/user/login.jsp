@@ -18,7 +18,7 @@
     </div>
     <div>
       <button type="submit">登录</button>
-      <a href="${basePath}/user/register">注册</a>
+      <a href="${basePath}/user/registerPage" target="_blank">注册</a>
     </div>
   </form>
 </div>

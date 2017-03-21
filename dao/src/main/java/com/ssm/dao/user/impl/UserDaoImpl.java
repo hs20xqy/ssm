@@ -23,6 +23,10 @@ public class UserDaoImpl implements IUserDao {
         return userMapper.selectByUserNameAndPassword(userName, passWord);
     }
 
+    public User getUser(String userName) {
+        return userMapper.selectByUserName(userName);
+    }
+
     public int addUser(User user) {
         return userMapper.insert(user);
     }

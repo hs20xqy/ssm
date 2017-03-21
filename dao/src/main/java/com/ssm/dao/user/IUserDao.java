@@ -10,16 +10,23 @@ public interface IUserDao {
     /**
      * 根据用户名密码获取用户
      * @param userName 用户名
-     * @param passWord 密码
+     * @param password 密码
      * @return
      */
-    User getUser(String userName, String passWord);
+    User getUser(String userName, String password);
 
     /**
-     * 添加用户
-     * @param user
+     * 根据用户名获取用户
+     * @param userName 用户名
      * @return
      */
+    public User getUser(String userName);
+
+        /**
+         * 添加用户
+         * @param user
+         * @return
+         */
     int addUser(User user);
 
 }
