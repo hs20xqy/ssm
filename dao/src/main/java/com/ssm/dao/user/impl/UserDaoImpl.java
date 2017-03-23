@@ -27,6 +27,10 @@ public class UserDaoImpl implements IUserDao {
         return userMapper.selectByUserName(userName);
     }
 
+    public List<User> getUsers() {
+        return userMapper.selectAllUsers();
+    }
+
     public int addUser(User user) {
         return userMapper.insert(user);
     }

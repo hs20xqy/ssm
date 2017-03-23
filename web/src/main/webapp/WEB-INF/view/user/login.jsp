@@ -1,11 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
-<%@include file="../common/head.jsp"%>
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="${basePath}/static/modules/user/user.css">
-</head>
-<body>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@include file="../common/header.jsp"%>
 <div class="main">
   <form id="loginForm" class="loginForm" action="${basePath}/user/login" method="post">
     <div>
@@ -22,5 +16,4 @@
     </div>
   </form>
 </div>
-</body>
-</html>
+<%@include file="../common/footer.jsp"%>

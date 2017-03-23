@@ -3,6 +3,8 @@ package com.ssm.mapper;
 import com.ssm.bean.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(String userId);
 
@@ -19,4 +21,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAllUsers();
 }

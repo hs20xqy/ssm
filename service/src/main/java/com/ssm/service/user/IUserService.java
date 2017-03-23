@@ -2,6 +2,8 @@ package com.ssm.service.user;
 
 import com.ssm.bean.User;
 
+import java.util.List;
+
 /**
  * Created by hs on 2016/12/8.
  */
@@ -21,5 +23,11 @@ public interface IUserService {
      * @return
      */
     boolean register(User user);
+
+    /**
+     * 获取所有用户列表
+     * @return
+     */
+    List<User> getUserList();
 
 }

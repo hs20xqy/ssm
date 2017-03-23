@@ -1,5 +1,7 @@
 package com.controller;
 
+import com.common.entity.api.ApiResult;
+import com.common.entity.api.ApiResultUtil;
 import com.ssm.bean.User;
 import com.ssm.service.user.IUserService;
 import org.slf4j.Logger;
@@ -7,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -23,7 +26,7 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/home")
     public ModelAndView loginView() {
-        ModelAndView view = new ModelAndView("/user/login");
+        ModelAndView view = new ModelAndView("user/login");
         return view;
     }
 
@@ -32,10 +35,10 @@ public class UserController extends BaseController {
         ModelAndView view = new ModelAndView();
         User user = userService.login(userName, passWord);
         if (user == null) {
-            view.setViewName("/user/login");
+            view.setViewName("user/login");
             view.addObject("msg", "用户名或密码错误");
         }else {
-            view.setViewName("/main");
+            view.setViewName("main");
             view.addObject("user", user);
         }
         return view;
@@ -51,11 +54,17 @@ public class UserController extends BaseController {
         ModelAndView view = new ModelAndView();
         boolean result = userService.register(user);
         if (result) {
-            view.setViewName("/user/login");
+            view.setViewName("user/login");
         }
         else {
-            view.setViewName("/user/register");
+            view.setViewName("user/register");
         }
         return view;
+    }
+
+    @RequestMapping(value = "/getUserList")
+    @ResponseBody
+    public ApiResult getUserList() {
+        return ApiResultUtil.newListResult(userService.getUserList());
     }
 }

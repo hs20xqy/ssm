@@ -2,6 +2,8 @@ package com.ssm.dao.user;
 
 import com.ssm.bean.User;
 
+import java.util.List;
+
 /**
  * Created by hs on 2016/12/9.
  */
@@ -28,5 +30,11 @@ public interface IUserDao {
          * @return
          */
     int addUser(User user);
+
+    /**
+     * 获取所有用户列表
+     * @return
+     */
+    List<User> getUsers();
 
 }

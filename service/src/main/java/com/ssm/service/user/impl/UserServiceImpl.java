@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -57,5 +58,9 @@ public class UserServiceImpl implements IUserService {
             e.printStackTrace();
         }
         return  userDao.addUser(user) > 0;
+    }
+
+    public List<User> getUserList() {
+        return userDao.getUsers();
     }
 }

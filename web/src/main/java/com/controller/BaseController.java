@@ -16,7 +16,7 @@ public class BaseController {
      */
     @ExceptionHandler(Exception.class)
     public String handleException(Exception ex) {
-        System.out.println("BaseController handleException!");
+        System.out.println("BaseController handleException !");
         return "error-404";
     }
 }

@@ -38,6 +38,17 @@
                                 <value>DisableCircularReferenceDetect</value>
                             </list>
                         </property>
+                        <property name="serializerFeatures">
+                            <list>
+                                <value>WriteMapNullValue</value>
+                                <value>QuoteFieldNames</value>
+                                <value>WriteDateUseDateFormat</value>
+                                <value>WriteNullListAsEmpty</value>
+                                <value>WriteNullNumberAsZero</value>
+                                <value>WriteNullStringAsEmpty</value>
+                                <value>DisableCircularReferenceDetect</value>
+                            </list>
+                        </property>
                         <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />
                     </bean>
                 </property>
@@ -45,13 +56,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <mvc:annotation-driven />
     <beans>
-        <!-- 配置视图解析器 -->
-        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-            <property name="prefix" value="/WEB-INF/view/"/>
-            <property name="suffix" value=".jsp" />
-        </bean>
         <!-- 配置异常拦截器 -->
         <bean name="exceptionResolver" class="com.exception.ExceptionHandler"></bean>
         <!-- spring 3 视图解析器 -->
@@ -62,7 +67,7 @@
 
         <!-- spring 4 视图解析器 -->
         <mvc:view-resolvers>
-            <mvc:jsp prefix="/WEB-INF/view/jsp/" suffix=".jsp"/>
+            <mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>
         </mvc:view-resolvers>
     </beans>
 
