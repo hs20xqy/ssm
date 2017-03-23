@@ -2,6 +2,8 @@ package com.controller;
 
 import com.common.entity.api.ApiResult;
 import com.common.entity.api.ApiResultUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.ssm.bean.User;
 import com.ssm.service.user.IUserService;
 import org.slf4j.Logger;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Created by hs on 2016/12/8.
@@ -65,6 +69,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/getUserList")
     @ResponseBody
     public ApiResult getUserList() {
-        return ApiResultUtil.newListResult(userService.getUserList());
+        List<User> list = userService.getUserList();
+        return ApiResultUtil.newListResult(list);
     }
 }

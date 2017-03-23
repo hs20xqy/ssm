@@ -1,11 +1,9 @@
 package com.ssm.dao.user.impl;
 
 import com.ssm.bean.User;
-import com.ssm.dao.common.BaseDao;
 import com.ssm.dao.user.IUserDao;
 import com.ssm.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

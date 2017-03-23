@@ -1,13 +1,14 @@
 package com.ssm.service.user.impl;
 
-import com.common.util.EncryptUtil;
+import com.common.database.pagination.DBPageHelper;
+import com.common.util.encrypt.EncryptUtil;
+import com.github.pagehelper.PageHelper;
 import com.ssm.dao.user.IUserDao;
 import com.ssm.service.user.IUserService;
 import com.ssm.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
@@ -61,6 +62,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     public List<User> getUserList() {
+        DBPageHelper.startPageFromRequest(true);
         return userDao.getUsers();
     }
 }

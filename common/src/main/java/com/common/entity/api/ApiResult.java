@@ -1,6 +1,7 @@
 package com.common.entity.api;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.common.database.pagination.ApiPageInfo;
 
 /**
  * Created by hs on 2017/3/3.
@@ -18,6 +19,10 @@ public class ApiResult {
     /* 返回提示消息 */
     @JSONField(ordinal = 2)
     private String msg;
+
+    /* 返回分页信息 */
+    @JSONField(ordinal = 3)
+    private ApiPageInfo pageInfo;
 
     public String getCode() {
         return code;
@@ -41,6 +46,14 @@ public class ApiResult {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public ApiPageInfo getPageInfo() {
+        return pageInfo;
+    }
+
+    public void setPageInfo(ApiPageInfo pageInfo) {
+        this.pageInfo = pageInfo;
     }
 }
 

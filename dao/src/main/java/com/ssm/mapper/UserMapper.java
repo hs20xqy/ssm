@@ -1,5 +1,6 @@
 package com.ssm.mapper;
 
+import com.github.pagehelper.Page;
 import com.ssm.bean.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,5 +23,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    List<User> selectAllUsers();
+    Page<User> selectAllUsers();
 }

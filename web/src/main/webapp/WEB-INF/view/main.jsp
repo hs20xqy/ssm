@@ -8,7 +8,7 @@
   $(function () {
     // 发起异步请求用户列表
     $.ajax({
-      url: window.globalConst.baseUrl + "/user/getUserList",
+      url: window.globalConst.baseUrl + "/user/getUserList?pageNum=1&pageSize=4",
       type: "post",
       dataType: "json",
       success: function (data) {

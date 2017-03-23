@@ -1,5 +1,9 @@
 package com.common.entity.api;
 
+import com.common.database.pagination.ApiPageInfo;
+import com.common.database.pagination.DBPageHelper;
+import com.github.pagehelper.PageInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +40,8 @@ public final class ApiResultUtil {
             result.setData(new ArrayList<T>());
         }else {
             result = new ApiSuccessResult();
+            result.setPageInfo(DBPageHelper.getPageFormResultList(data));
             result.setData(data);
-
         }
         return result;
     }
